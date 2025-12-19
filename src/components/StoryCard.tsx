@@ -1,56 +1,91 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Story } from '../data/contract';
 
 interface StoryCardProps {
   story: Story;
+  isFeatured?: boolean;
 }
 
-const StoryCard: React.FC<StoryCardProps> = ({ story }) => {
-  return (
-    <div className="flex gap-4 p-4 border-b border-gray-200 last:border-b-0 hover:bg-white transition-colors items-start">
-      {/* Rank Indicator */}
-      <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-blue-600 text-white font-bold rounded-full text-sm">
-        {story.rank}
-      </div>
-      
-      {/* Content Section */}
-      <div className="flex-grow min-w-0">
-        <h2 className="text-lg font-bold leading-tight mb-1 hover:text-blue-700 cursor-pointer line-clamp-2">
-          {story.headline}
-        </h2>
-        {story.summary ? (
-          <p className="text-gray-600 text-sm line-clamp-2 mb-2">
-            {story.summary}
-          </p>
-        ) : (
-          <div className="h-4 mb-2" /> /* Maintaining vertical rhythm even without summary */
-        )}
-        <div className="flex items-center gap-2">
-          <span className="text-xs text-gray-400 uppercase tracking-wider font-medium">
-            {new Date(story.publishDate).toLocaleDateString(undefined, { 
-              month: 'short', 
-              day: 'numeric', 
-              hour: '2-digit', 
-              minute: '2-digit' 
-            })}
-          </span>
-        </div>
-      </div>
+const StoryCard: React.FC<StoryCardProps> = ({ story, isFeatured = false }) => {
+  const [isFlipped, setIsFlipped] = useState(false);
 
-      {/* Image Section with Fixed Aspect Ratio for Layout Stability */}
-      <div className="flex-shrink-0 w-32 aspect-video bg-gray-200 rounded overflow-hidden relative">
-        {story.imageUrl ? (
+  const handleFlip = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsFlipped(!isFlipped);
+  };
+
+  return (
+    <div className={`perspective-1000 ${isFeatured ? 'h-[400px]' : 'h-[300px]'} w-full group`}>
+      <div className={`flip-card-inner ${isFlipped ? 'flipped' : ''}`}>
+        
+        {/* FRONT FACE */}
+        <div className="absolute inset-0 backface-hidden rounded-xl overflow-hidden bg-[#1a1a1a] border border-[#333] shadow-2xl">
           <img 
-            src={story.imageUrl} 
-            alt={story.headline} 
-            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
-            loading="lazy"
+            src={story.coverImage} 
+            alt={story.title} 
+            className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-500"
           />
-        ) : (
-          <div className="absolute inset-0 flex items-center justify-center text-gray-400 italic text-[10px] text-center p-2 uppercase font-bold tracking-tighter">
-            No Media
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent p-6 flex flex-col justify-between">
+            <span className="text-4xl font-black italic text-white/80 self-start">
+              {story.rank}
+            </span>
+            
+            <div className="mb-4">
+              <h2 className={`${isFeatured ? 'text-2xl' : 'text-lg'} font-bold leading-tight line-clamp-2 mb-2`}>
+                {story.title}
+              </h2>
+              {isFeatured && (
+                <p className="text-gray-300 text-sm line-clamp-3 mb-2">
+                  {story.shortSummary}
+                </p>
+              )}
+            </div>
           </div>
-        )}
+
+          <button 
+            onClick={handleFlip}
+            className="absolute bottom-4 right-4 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white text-[10px] px-3 py-1 rounded-full uppercase tracking-widest font-bold transition-all"
+          >
+            Preview
+          </button>
+        </div>
+
+        {/* BACK FACE */}
+        <div className="absolute inset-0 backface-hidden rotate-y-180 rounded-xl overflow-hidden bg-[#151515] border border-blue-500/30 p-6 flex flex-col shadow-2xl shadow-blue-500/10">
+          <div className="flex-grow">
+            <div className="flex justify-between items-start mb-4">
+              <span className="text-sm text-blue-400 font-bold uppercase tracking-wider">
+                Rank {story.rank}
+              </span>
+              <span className="text-[10px] text-gray-500 uppercase">
+                {story.authorName}
+              </span>
+            </div>
+            
+            <h3 className="text-sm font-bold text-white mb-3 line-clamp-2">
+              {story.title}
+            </h3>
+            
+            <p className="text-gray-400 text-xs leading-relaxed">
+              {story.shortSummary}
+            </p>
+          </div>
+
+          <div className="flex justify-between items-center mt-4">
+            <button 
+              className="bg-blue-600 hover:bg-blue-700 text-white text-[10px] px-4 py-2 rounded-lg font-bold transition-colors"
+            >
+              Read More
+            </button>
+            <button 
+              onClick={handleFlip}
+              className="text-gray-500 hover:text-white text-[10px] uppercase font-bold"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+
       </div>
     </div>
   );
