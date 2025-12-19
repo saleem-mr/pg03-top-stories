@@ -37,7 +37,7 @@ export const mockStories: Story[] = [
     rank: 3,
     headline: "Local Community Transforms Vacant Lot into Urban Garden",
     summary: "The project aims to provide fresh produce and green space for neighborhood residents.",
-    // Missing imageUrl to test edge case
+    imageUrl: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&q=80&w=400",
     publishDate: "2025-12-19T12:00:00Z"
   },
   {
