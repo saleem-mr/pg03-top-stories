@@ -3,8 +3,14 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    @apply bg-[#0f0f0f] text-white font-sans antialiased;
+  :root {
+    color-scheme: dark;
+  }
+  html, body {
+    @apply bg-[#050505] text-white;
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
   }
 }
 
@@ -34,7 +40,6 @@
   transform: rotateY(180deg);
 }
 
-/* Scrollbar for summaries */
 .custom-scrollbar::-webkit-scrollbar {
   width: 4px;
 }
