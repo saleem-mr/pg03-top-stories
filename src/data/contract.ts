@@ -13,7 +13,7 @@ export const mockStories: Story[] = [
     rank: 2,
     headline: "Global Markets Rally Amidst Economic Recovery Hopes",
     summary: "Investors are showing renewed confidence as manufacturing data beats expectations across major economies.",
-    imageUrl: "https://images.unsplash.com/photo-1611974717484-788cff60caec?auto=format&fit=crop&q=80&w=400",
+    imageUrl: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&q=80&w=400",
     publishDate: "2025-12-19T10:00:00Z"
   },
   {
