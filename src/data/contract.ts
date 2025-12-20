@@ -6,6 +6,9 @@ export interface Story {
   coverImage: string;
   authorName: string;
   publishDate: string;
+  views: string;
+  comments: number;
+  shares: number;
 }
 
 export const mockStories: Story[] = [
@@ -16,7 +19,10 @@ export const mockStories: Story[] = [
     shortSummary: "A massive breakthrough in containment technology brings us closer to clean, limitless energy for the entire planet.",
     coverImage: "https://images.unsplash.com/photo-1518152006812-edab29b069ac?auto=format&fit=crop&q=80&w=800",
     authorName: "Dr. Aris Thorne",
-    publishDate: "2025-12-19T08:00:00Z"
+    publishDate: "2025-12-19T08:00:00Z",
+    views: "4.2k",
+    comments: 128,
+    shares: 45
   },
   {
     id: "story-2",
@@ -25,7 +31,10 @@ export const mockStories: Story[] = [
     shortSummary: "New biological-silicon hybrids are outperforming traditional GPUs in complex inference tasks.",
     coverImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=400",
     authorName: "Sarah Jenkins",
-    publishDate: "2025-12-19T09:30:00Z"
+    publishDate: "2025-12-19T09:30:00Z",
+    views: "3.1k",
+    comments: 89,
+    shares: 32
   },
   {
     id: "story-3",
@@ -34,7 +43,10 @@ export const mockStories: Story[] = [
     shortSummary: "The first permanent underwater habitat is being assembled in the North Atlantic ridge.",
     coverImage: "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&q=80&w=400",
     authorName: "Marcus Vane",
-    publishDate: "2025-12-19T10:15:00Z"
+    publishDate: "2025-12-19T10:15:00Z",
+    views: "2.8k",
+    comments: 56,
+    shares: 18
   },
   {
     id: "story-4",
@@ -43,7 +55,10 @@ export const mockStories: Story[] = [
     shortSummary: "Open-source governance models are replacing corporate gatekeepers in major AI projects.",
     coverImage: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=400",
     authorName: "Elena Rossi",
-    publishDate: "2025-12-19T11:00:00Z"
+    publishDate: "2025-12-19T11:00:00Z",
+    views: "2.5k",
+    comments: 74,
+    shares: 29
   },
   {
     id: "story-5",
@@ -52,7 +67,10 @@ export const mockStories: Story[] = [
     shortSummary: "Scientists successfully grow high-yield crops in Martian regolith using advanced hydro-filters.",
     coverImage: "https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&q=80&w=400",
     authorName: "Kenji Sato",
-    publishDate: "2025-12-19T12:45:00Z"
+    publishDate: "2025-12-19T12:45:00Z",
+    views: "5.1k",
+    comments: 210,
+    shares: 88
   },
   {
     id: "story-6",
@@ -61,7 +79,10 @@ export const mockStories: Story[] = [
     shortSummary: "The global financial system has officially migrated to quantum-resistant communication protocols.",
     coverImage: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=400",
     authorName: "Linda Wu",
-    publishDate: "2025-12-19T13:20:00Z"
+    publishDate: "2025-12-19T13:20:00Z",
+    views: "1.9k",
+    comments: 42,
+    shares: 12
   },
   {
     id: "story-7",
@@ -70,7 +91,10 @@ export const mockStories: Story[] = [
     shortSummary: "Genetic engineering techniques have led to a 40% increase in resilient coral growth.",
     coverImage: "https://images.unsplash.com/photo-1546026423-cc4642628d2b?auto=format&fit=crop&q=80&w=400",
     authorName: "David Atten",
-    publishDate: "2025-12-19T14:10:00Z"
+    publishDate: "2025-12-19T14:10:00Z",
+    views: "3.4k",
+    comments: 115,
+    shares: 61
   },
   {
     id: "story-8",
@@ -79,7 +103,10 @@ export const mockStories: Story[] = [
     shortSummary: "The first trans-continental vacuum tube line reduces travel time between London and NY to 2 hours.",
     coverImage: "https://images.unsplash.com/photo-1515162305285-0293e4767cc2?auto=format&fit=crop&q=80&w=400",
     authorName: "Jameson Ford",
-    publishDate: "2025-12-19T15:05:00Z"
+    publishDate: "2025-12-19T15:05:00Z",
+    views: "2.2k",
+    comments: 67,
+    shares: 24
   },
   {
     id: "story-9",
@@ -88,7 +115,10 @@ export const mockStories: Story[] = [
     shortSummary: "New mushroom-based polymers have officially replaced single-use plastics in global retail.",
     coverImage: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&q=80&w=400",
     authorName: "Gaia Green",
-    publishDate: "2025-12-19T16:30:00Z"
+    publishDate: "2025-12-19T16:30:00Z",
+    views: "2.7k",
+    comments: 92,
+    shares: 37
   },
   {
     id: "story-10",
@@ -97,6 +127,9 @@ export const mockStories: Story[] = [
     shortSummary: "A pilot program across Northern Europe shows 95% reduction in absolute poverty.",
     coverImage: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=400",
     authorName: "Sven Gunder",
-    publishDate: "2025-12-19T17:50:00Z"
+    publishDate: "2025-12-19T17:50:00Z",
+    views: "1.5k",
+    comments: 38,
+    shares: 9
   }
 ];
